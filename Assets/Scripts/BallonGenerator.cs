@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class BallonGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class BallonGenerator : MonoBehaviour
     {
         if(currentCooldown>=creationCooldown)
         {
-            GenerateBallons();
+            GenerateBallons(EnemySelectorByWeight(enemyPrefabs));
             currentCooldown=0;
         }
         else
@@ -32,6 +33,26 @@ public class BallonGenerator : MonoBehaviour
             currentCooldown+=1f* Time.deltaTime;
         }
  
+    }
+
+    private GameObject EnemySelectorByWeight(EnemyWeights[] enemyWeightsList)
+    {
+        var rand=Random.Range(0f,1f);
+
+        foreach(EnemyWeights weight in enemyWeightsList)
+        {
+            if(rand >=weight.minProb && rand < weight.maxProb)
+            {
+                print($"{rand} and {weight.enemyPrefab.ToString()}");
+                return weight.enemyPrefab;
+                
+            }
+        }
+
+        print($"OUT FOREACH and {enemyWeightsList[0].ToString()}");
+        return enemyWeightsList[0].enemyPrefab;
+        
+
     }
 
     private int EnemyRandomInt()
@@ -51,7 +72,7 @@ public class BallonGenerator : MonoBehaviour
     );}
 
 
-    public void GenerateBallons()
+    public void GenerateBallons(GameObject prefabToSpawn)
     {
         var ballon =Instantiate(EnemySelector(0), RandomPointInBounds(baseCollider.bounds), Quaternion.identity);
         ballon.transform.localScale=new Vector3(0.01f,0.01f,0.01f);

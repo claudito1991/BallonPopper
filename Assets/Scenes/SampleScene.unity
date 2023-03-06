@@ -719,12 +719,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3e4d3387b563341b859b714232f393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - minProb: 0
+    maxProb: 0
+    enemyPrefab: {fileID: 0}
+  - minProb: 0
+    maxProb: 0
+    enemyPrefab: {fileID: 0}
   baseCollider: {fileID: 1472334175}
   ballonPrefabs:
   - {fileID: 4223765656013689417, guid: aa15b9543619acd479b3c26b4cb201d0, type: 3}
   - {fileID: 8834860897851049983, guid: 7500ecd75e5547344b16dbea9bb14e0e, type: 3}
   - {fileID: 4851819441333950909, guid: cb35c3fb34e15f743a70bc0731d273a2, type: 3}
-  creationCooldown: 0.8
 --- !u!1 &1592801618
 GameObject:
   m_ObjectHideFlags: 0
