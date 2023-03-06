@@ -12,9 +12,17 @@ void OnTriggerEnter(Collider other)
     if(other.CompareTag("enemy"))
     {
         Debug.Log("Enemy in target!");
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject);
         ballonAttack?.Invoke();
     }
 
+}
+
+void Update()
+{
+    //balloon detection in scene 
+
+   //var ballonsInScene = FindObjectsOfType<BallonControler>().Length;
+    //print(ballonsInScene);
 }
 }

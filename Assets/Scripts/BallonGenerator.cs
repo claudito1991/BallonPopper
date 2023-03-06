@@ -43,13 +43,13 @@ public class BallonGenerator : MonoBehaviour
         {
             if(rand >=weight.minProb && rand < weight.maxProb)
             {
-                print($"{rand} and {weight.enemyPrefab.ToString()}");
+                //print($"{rand} and {weight.enemyPrefab.ToString()}");
                 return weight.enemyPrefab;
                 
             }
         }
 
-        print($"OUT FOREACH and {enemyWeightsList[0].ToString()}");
+        //print($"OUT FOREACH and {enemyWeightsList[0].ToString()}");
         return enemyWeightsList[0].enemyPrefab;
         
 
