@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BallonGenerator : MonoBehaviour
 {
-
+    [SerializeField] EnemyWeights[] enemyPrefabs;
     [SerializeField]
     Collider baseCollider;
     [SerializeField]
     GameObject[] ballonPrefabs;
-
-    [SerializeField]
+  
     float creationCooldown=2f;
     float currentCooldown=0;
     int ballonQuant = 5;
