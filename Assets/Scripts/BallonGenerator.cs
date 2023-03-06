@@ -23,6 +23,7 @@ public class BallonGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(currentCooldown>=creationCooldown)
         {
             GenerateBallons(EnemySelectorByWeight(enemyPrefabs));
@@ -43,6 +44,7 @@ public class BallonGenerator : MonoBehaviour
         {
             if(rand >=weight.minProb && rand < weight.maxProb)
             {
+                FindObjectOfType<SceneEnemyTracking>().TrackEnemyType(weight.name);
                 //print($"{rand} and {weight.enemyPrefab.ToString()}");
                 return weight.enemyPrefab;
                 
@@ -50,6 +52,7 @@ public class BallonGenerator : MonoBehaviour
         }
 
         //print($"OUT FOREACH and {enemyWeightsList[0].ToString()}");
+        FindObjectOfType<SceneEnemyTracking>().TrackEnemyType(enemyWeightsList[0].name);
         return enemyWeightsList[0].enemyPrefab;
         
 

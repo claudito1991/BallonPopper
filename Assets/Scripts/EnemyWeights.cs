@@ -8,11 +8,14 @@ struct EnemyWeights {
     //Note: I'm explicitly declaring them as public, but they are public by default. You can use private if you choose.
     public float minProb;
     public float maxProb;
+
+    public string name;
     public GameObject enemyPrefab;
     //Constructor (not necessary, but helpful)
-    public EnemyWeights(int minProb, int maxProb, GameObject enemyPrefab) {
+    public EnemyWeights(string name, int minProb, int maxProb, GameObject enemyPrefab) {
         this.minProb = minProb;
         this.maxProb = maxProb;
         this.enemyPrefab = enemyPrefab;
+        this.name = name;
     }
 }
