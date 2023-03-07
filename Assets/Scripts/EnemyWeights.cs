@@ -12,10 +12,11 @@ struct EnemyWeights {
     public string name;
     public GameObject enemyPrefab;
     //Constructor (not necessary, but helpful)
-    public EnemyWeights(string name, int minProb, int maxProb, GameObject enemyPrefab) {
+    public EnemyWeights(string name, float minProb, float maxProb, GameObject enemyPrefab) {
         this.minProb = minProb;
         this.maxProb = maxProb;
         this.enemyPrefab = enemyPrefab;
         this.name = name;
+        Debug.Log(name.ToString());
     }
 }

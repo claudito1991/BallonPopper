@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BallonGenerator : MonoBehaviour
 {
-    [SerializeField] EnemyWeights[] enemyPrefabs;
+    [SerializeField] List<EnemyWeights> enemyPrefabs = new List<EnemyWeights>();
     [SerializeField]
     Collider baseCollider;
     [SerializeField]
@@ -36,15 +36,16 @@ public class BallonGenerator : MonoBehaviour
  
     }
 
-    private GameObject EnemySelectorByWeight(EnemyWeights[] enemyWeightsList)
+    private GameObject EnemySelectorByWeight(List<EnemyWeights> enemyWeightsList)
     {
         var rand=Random.Range(0f,1f);
 
         foreach(EnemyWeights weight in enemyWeightsList)
         {
+
             if(rand >=weight.minProb && rand < weight.maxProb)
             {
-                FindObjectOfType<SceneEnemyTracking>().TrackEnemyType(weight.name);
+                print("aleatorio: " + rand+ " el prefab es: " + weight.name.ToString());
                 //print($"{rand} and {weight.enemyPrefab.ToString()}");
                 return weight.enemyPrefab;
                 
@@ -52,11 +53,12 @@ public class BallonGenerator : MonoBehaviour
         }
 
         //print($"OUT FOREACH and {enemyWeightsList[0].ToString()}");
-        FindObjectOfType<SceneEnemyTracking>().TrackEnemyType(enemyWeightsList[0].name);
+        
         return enemyWeightsList[0].enemyPrefab;
         
 
     }
+
 
     private int EnemyRandomInt()
     {
@@ -77,7 +79,7 @@ public class BallonGenerator : MonoBehaviour
 
     public void GenerateBallons(GameObject prefabToSpawn)
     {
-        var ballon =Instantiate(EnemySelector(0), RandomPointInBounds(baseCollider.bounds), Quaternion.identity);
+        var ballon =Instantiate(prefabToSpawn, RandomPointInBounds(baseCollider.bounds), Quaternion.identity);
         ballon.transform.localScale=new Vector3(0.01f,0.01f,0.01f);
 
     }
