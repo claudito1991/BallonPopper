@@ -8,19 +8,21 @@ public class BallonGenerator : MonoBehaviour
     [SerializeField] List<EnemyWeights> enemyPrefabs = new List<EnemyWeights>();
     [SerializeField]
     Collider baseCollider;
-    [SerializeField]
-    GameObject[] ballonPrefabs;
-  
-    float creationCooldown=2f;
+    //GameObject[] ballonPrefabs;
+    
+    [SerializeField] List<EnemyPriority> enemyPriorities = new List<EnemyPriority>();
+
+    [SerializeField] float creationCooldown=2f;
     float currentCooldown=0;
     int ballonQuant = 5;
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        // i want the game to spawn inmediatly
+        currentCooldown = creationCooldown;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
@@ -42,33 +44,34 @@ public class BallonGenerator : MonoBehaviour
 
         foreach(EnemyWeights weight in enemyWeightsList)
         {
-
-            if(rand >=weight.minProb && rand < weight.maxProb)
+            if(weight.priority == MatchProb(rand))
             {
-                print("aleatorio: " + rand+ " el prefab es: " + weight.name.ToString());
-                //print($"{rand} and {weight.enemyPrefab.ToString()}");
+                print("random number was: "+rand);
+                print("name of prefab selected is: "+ weight.name);
                 return weight.enemyPrefab;
-                
             }
         }
-
-        //print($"OUT FOREACH and {enemyWeightsList[0].ToString()}");
-        
-        return enemyWeightsList[0].enemyPrefab;
-        
-
+        return null;
     }
 
-
-    private int EnemyRandomInt()
+    private int MatchProb(float rand)
     {
-        return Random.Range(0, ballonPrefabs.Length);
+        foreach(EnemyPriority p in enemyPriorities)
+        {
+            if(p.probMin < rand  &&  rand <=p.probMax)
+            {
+                return p.priority;
+            }
+        }
+        return -1;
     }
+
+    public void ReassingPriorities()
+    {
     
-    private GameObject EnemySelector(int enemyPosition)
-    {
-        return ballonPrefabs[EnemyRandomInt()];
     }
+
+
     public static Vector3 RandomPointInBounds(Bounds bounds) {
     return new Vector3(
         Random.Range(bounds.min.x, bounds.max.x),

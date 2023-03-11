@@ -11,7 +11,7 @@ void OnTriggerEnter(Collider other)
 {
     if(other.CompareTag("enemy"))
     {
-        Debug.Log("Enemy in target!");
+        //Debug.Log("Enemy in target!");
         //Destroy(other.gameObject);
         ballonAttack?.Invoke();
     }

@@ -637,6 +637,8 @@ GameObject:
   - component: {fileID: 1472334176}
   - component: {fileID: 1472334175}
   - component: {fileID: 1472334179}
+  - component: {fileID: 1472334180}
+  - component: {fileID: 1472334181}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -733,23 +735,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - minProb: 0
-    maxProb: 0.7
+  - priority: 2
     name: normal
     enemyPrefab: {fileID: 4223765656013689417, guid: aa15b9543619acd479b3c26b4cb201d0, type: 3}
-  - minProb: 0.7
-    maxProb: 0.95
+  - priority: 1
     name: faster
     enemyPrefab: {fileID: 8834860897851049983, guid: 7500ecd75e5547344b16dbea9bb14e0e, type: 3}
-  - minProb: 0.95
-    maxProb: 1
+  - priority: 3
     name: slow
     enemyPrefab: {fileID: 4851819441333950909, guid: cb35c3fb34e15f743a70bc0731d273a2, type: 3}
   baseCollider: {fileID: 1472334175}
-  ballonPrefabs:
-  - {fileID: 4223765656013689417, guid: aa15b9543619acd479b3c26b4cb201d0, type: 3}
-  - {fileID: 8834860897851049983, guid: 7500ecd75e5547344b16dbea9bb14e0e, type: 3}
-  - {fileID: 4851819441333950909, guid: cb35c3fb34e15f743a70bc0731d273a2, type: 3}
+  enemyPriorities:
+  - priority: 1
+    probMin: 0
+    probMax: 0.8
+  - priority: 2
+    probMin: 0.8
+    probMax: 0.95
+  - priority: 3
+    probMin: 0.95
+    probMax: 1
+--- !u!95 &1472334180
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472334174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9c52e55a88ed854bad09de65499b40e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1472334181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472334174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec605e64d5cbcf048a81ec0238a60208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1592801618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1204,7 @@ GameObject:
   - component: {fileID: 2019753005}
   - component: {fileID: 2019753004}
   - component: {fileID: 2019753003}
+  - component: {fileID: 2019753008}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -1263,3 +1300,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &2019753008
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019753002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 581ebb7bd2679f94184b20267135b3f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
