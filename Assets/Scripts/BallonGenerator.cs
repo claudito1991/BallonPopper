@@ -46,8 +46,8 @@ public class BallonGenerator : MonoBehaviour
         {
             if(weight.priority == MatchProb(rand))
             {
-                print("random number was: "+rand);
-                print("name of prefab selected is: "+ weight.name);
+                //print("random number was: "+rand);
+                //print("name of prefab selected is: "+ weight.name);
                 return weight.enemyPrefab;
             }
         }

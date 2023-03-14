@@ -29,6 +29,10 @@ public class EventsManager : MonoBehaviour
     {
         currentHealth -= amountOfDamage;
         health.SetHealth(currentHealth);
+        if(currentHealth <=0)
+        {
+            GetComponent<GameOver>().enabled = true;
+        }
     }
 
     void OnDisable()

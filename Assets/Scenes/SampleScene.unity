@@ -471,7 +471,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1067214138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfc0a90b315365f47bf0e267580daeee, type: 3}
+  m_Script: {fileID: 11500000, guid: 901fd00c42fffef4fbd4f73435917fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1245232218
@@ -735,10 +735,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - priority: 2
+  - priority: 1
     name: normal
     enemyPrefab: {fileID: 4223765656013689417, guid: aa15b9543619acd479b3c26b4cb201d0, type: 3}
-  - priority: 1
+  - priority: 2
     name: faster
     enemyPrefab: {fileID: 8834860897851049983, guid: 7500ecd75e5547344b16dbea9bb14e0e, type: 3}
   - priority: 3
@@ -755,6 +755,7 @@ MonoBehaviour:
   - priority: 3
     probMin: 0.95
     probMax: 1
+  creationCooldown: 1
 --- !u!95 &1472334180
 Animator:
   serializedVersion: 3

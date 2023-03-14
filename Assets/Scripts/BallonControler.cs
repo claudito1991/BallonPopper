@@ -29,7 +29,7 @@ public class BallonControler : MonoBehaviour
         if(currentClicks == clicksToPop)
         {
             BallonPoped?.Invoke();
-            DestroyObject(gameObject);
+            Destroy(gameObject);
         }
     }
 
