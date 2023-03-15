@@ -35,6 +35,17 @@ public class EventsManager : MonoBehaviour
         }
     }
 
+    public void EnemyWaveOn()
+    {
+        FindObjectOfType<BallonGenerator>().canSpawn = true;
+    }
+
+
+    public void EnemyWaveOff()
+    {
+        FindObjectOfType<BallonGenerator>().canSpawn = false;
+    }
+
     void OnDisable()
     {
         BallonDetection.ballonAttack -= TakeDamage;

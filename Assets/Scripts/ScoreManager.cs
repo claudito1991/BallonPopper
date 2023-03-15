@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         initialScore = 0;
-        scoreValue.text = "";
+        scoreValue.text = "000";
     }
     void OnEnable()
     {

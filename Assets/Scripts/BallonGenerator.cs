@@ -16,6 +16,8 @@ public class BallonGenerator : MonoBehaviour
     float currentCooldown=0;
     int ballonQuant = 5;
 
+    public bool canSpawn=false;
+
     void Start()
     {
         // i want the game to spawn inmediatly
@@ -26,7 +28,7 @@ public class BallonGenerator : MonoBehaviour
     void Update()
     {
         
-        if(currentCooldown>=creationCooldown)
+        if(currentCooldown>=creationCooldown && canSpawn)
         {
             GenerateBallons(EnemySelectorByWeight(enemyPrefabs));
             currentCooldown=0;

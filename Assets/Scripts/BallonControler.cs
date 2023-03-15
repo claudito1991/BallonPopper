@@ -10,6 +10,9 @@ public class BallonControler : MonoBehaviour
     int clicksToPop = 3;
     [SerializeField]
     int currentClicks=0;
+
+    [SerializeField]
+    GameObject particleSystem;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,12 @@ public class BallonControler : MonoBehaviour
         if(currentClicks == clicksToPop)
         {
             BallonPoped?.Invoke();
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+            particleSystem.SetActive(true);
+            Destroy(this);
+        
         }
     }
 
