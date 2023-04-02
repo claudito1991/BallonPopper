@@ -36,9 +36,15 @@ public class BallonControler : MonoBehaviour
             gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
             particleSystem.SetActive(true);
+            StartCoroutine(DestroyEnemy());
             Destroy(this);
         
         }
     }
 
+    IEnumerator  DestroyEnemy()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(GetComponentInParent<Transform>());
+    }
 }

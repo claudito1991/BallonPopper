@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6665651738728253984, guid: aa15b9543619acd479b3c26b4cb201d0, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7298294510170259744, guid: aa15b9543619acd479b3c26b4cb201d0, type: 3}
       propertyPath: m_Materials.Array.data[0]

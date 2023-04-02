@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6353915738053261851}
   - component: {fileID: 1373704648}
   - component: {fileID: 2409202988057475874}
+  - component: {fileID: 4494471014651155905}
   m_Layer: 0
   m_Name: base_ballon
   m_TagString: enemy
@@ -104,6 +105,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4494471014651155905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266724925531304907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9402d40a65497454c8362c6dfe052d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &688673971214473421
 PrefabInstance:
   m_ObjectHideFlags: 0
