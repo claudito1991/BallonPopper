@@ -23,7 +23,7 @@ public class BallonControler : MonoBehaviour
     {
         currentClicks +=1;
         transform.localScale += new Vector3(0.2f,0.2f,0.2f);
-        Debug.Log(currentClicks);
+        //Debug.Log(currentClicks);
     }
 
     // Update is called once per frame

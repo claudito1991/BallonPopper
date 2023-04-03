@@ -5,29 +5,24 @@ using UnityEngine;
 
 public  class GameOver : MonoBehaviour
 {
-    private bool gameIsOver= false;
+    [SerializeField] private bool gameIsOver= false;
+    
+    [SerializeField] GameObject resetButton;
     GameObject[] enemies;
-    void Awake()
-    {
-        this.enabled = false;
-        
 
-    }
-    // Start is called before the first frame update
+    private SpawnEnemyFromStage spawnEnemyFromStage;
+
     void Start()
     {
-        print("Game Over");
-        gameIsOver  = true;
-        //Time.timeScale = 0;
+        spawnEnemyFromStage = GetComponent<SpawnEnemyFromStage>();
     }
-
-    void Update()
+    public void GameIsOver()
     {
-        if(gameIsOver)
-        {
-            DisableBalloons();
-            DisableWave();
-        }
+        resetButton.SetActive(true);
+        DisableBalloons();
+        spawnEnemyFromStage.canSpawn = false;
+        //DisableWave();
+
     }
     private void DisableBalloons()
     {
@@ -45,6 +40,6 @@ public  class GameOver : MonoBehaviour
     private void DisableWave()
 
     {
-        FindObjectOfType<EventsManager>().EnemyWaveOff();
+        //FindObjectOfType<EventsManager>().EnemyWaveOff();
     }
 }

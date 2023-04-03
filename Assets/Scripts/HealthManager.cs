@@ -10,7 +10,6 @@ public class HealthManager : MonoBehaviour
     public Slider slider;
     // Start is called before the first frame update
 
-
     public void SetHealth(int health)
     {
         slider.value = health;
@@ -21,5 +20,7 @@ public class HealthManager : MonoBehaviour
         slider.maxValue = health;
         slider.value = health;
     }
+
+
 
 }
